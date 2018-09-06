@@ -4,24 +4,22 @@ import json
 route = input("What route: ").upper()
 stop = input("What stop: ").upper()
 
-def switch_demo(argument):
-    switcher = {
-        'A': '3164',
-        'B': 4512,
-        'B2': 4513,
-        'C': 4515,
-    }
-    # (switcher.get(argument, "Invalid Route"))
+if route == 'B':
+	route = 4512
 
-route = (switch_demo(route))
+if stop == "RESIDENTS HALL":
+	stop = 487169
+
+if stop == "BUILDING 94":
+	stop = 33803
+
 print(route)
 
 url = "https://www.broncoshuttle.com/Route/%s/Stop/%s/Arrivals?customerID=21" % (route, stop)
 
-
 print(url)
 
-response = req.urlopen("https://www.broncoshuttle.com/Route/4512/Stop/487169/Arrivals?customerID=21")
+response = req.urlopen(url)
 data = json.load(response)
 
 print(response)
