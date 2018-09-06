@@ -13,16 +13,11 @@ if stop == "RESIDENTS HALL":
 if stop == "BUILDING 94":
 	stop = 33803
 
-print(route)
-
 url = "https://www.broncoshuttle.com/Route/%s/Stop/%s/Arrivals?customerID=21" % (route, stop)
-
-print(url)
 
 response = req.urlopen(url)
 data = json.load(response)
 
-print(response)
 
 eta = data[0]["Minutes"]
 eta = str(eta)
